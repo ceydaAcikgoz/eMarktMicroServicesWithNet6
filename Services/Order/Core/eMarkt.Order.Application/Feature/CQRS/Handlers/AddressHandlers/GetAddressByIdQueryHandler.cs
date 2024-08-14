@@ -1,0 +1,33 @@
+﻿using eMarkt.Oder.Domain.Entities;
+using eMarkt.Order.Application.Feature.CQRS.Results.AddressResults;
+using eMarkt.Order.Application.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace eMarkt.Order.Application.Feature.CQRS.Handlers.AddressHandlers
+{
+    public class GetAddressByIdQueryHandler
+    {
+        private readonly IRepository<Address> _repository;
+
+        public GetAddressByIdQueryHandler(IRepository<Address> repository)
+        {
+            _repository = repository;
+        }
+        public async Task<GetAddressQueryResult> Handle(GetAddressByIdQuery query)
+        {
+            var values = await _repository.GetByIdAsync(query.Id);
+            return new GetAddressQueryResult
+            {
+                AddressId = query.AddressId,
+                City = query.City,
+                Detail = query.Detail,
+                Distirct = query.Distirct,
+                UserId = query.UserId
+            };
+        }
+    }
+}
