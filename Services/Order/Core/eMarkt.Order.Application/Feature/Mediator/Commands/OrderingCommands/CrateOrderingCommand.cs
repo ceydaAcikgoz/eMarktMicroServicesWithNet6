@@ -1,0 +1,11 @@
+﻿using MediatR;
+
+namespace eMarkt.Order.Application.Feature.Mediator.Commands.OrderingCommands
+{
+    public class CrateOrderingCommand:IRequest
+    {
+        public string UserId { get; set; }
+        public decimal TotalPrice { get; set; }
+        public DateTime OrderDate { get; set; }
+    }
+}

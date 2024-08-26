@@ -1,4 +1,5 @@
 ﻿using eMarkt.Oder.Domain.Entities;
+using eMarkt.Order.Application.Feature.CQRS.Queries.AddressQueries;
 using eMarkt.Order.Application.Feature.CQRS.Results.AddressResults;
 using eMarkt.Order.Application.Interfaces;
 using System;
@@ -22,11 +23,11 @@ namespace eMarkt.Order.Application.Feature.CQRS.Handlers.AddressHandlers
             var values = await _repository.GetByIdAsync(query.Id);
             return new GetAddressQueryResult
             {
-                AddressId = query.AddressId,
-                City = query.City,
-                Detail = query.Detail,
-                Distirct = query.Distirct,
-                UserId = query.UserId
+                AddressId = values.AddressId,
+                City = values.City,
+                Detail = values.Detail,
+                Distirct = values.Distirct,
+                UserId = values.UserId
             };
         }
     }
