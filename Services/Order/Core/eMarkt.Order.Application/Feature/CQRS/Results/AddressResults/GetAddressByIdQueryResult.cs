@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace eMarkt.Order.Application.Feature.CQRS.Results.AddressResults
 {
     //Propertyleri tanımladık.
-    public class GetAddressByIdQuery
+    public class GetAddressByIdQueryResult
     {
         public int AddressId { get; set; }
         public int Id { get; set; }
